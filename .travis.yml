@@ -1,0 +1,17 @@
+language: cpp
+addons:
+  apt_packages:
+    - cmake
+    - g++-8
+    - opencv
+compiler:
+  - g++
+dist: bionic
+os:
+  - linux
+
+script:
+  - mkdir -p build
+  - cd build
+  - ~/temp/cmake-$version.$build/bin/cmake ..
+  - ~/temp/cmake-$version.$build/bin/cmake --build .
