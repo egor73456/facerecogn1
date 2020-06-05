@@ -13,5 +13,5 @@ os:
 script:
   - mkdir -p build
   - cd build
-  - ~/temp/cmake-$version.$build/bin/cmake ..
-  - ~/temp/cmake-$version.$build/bin/cmake --build .
+  - cmake ..
+  - cmake --build .
