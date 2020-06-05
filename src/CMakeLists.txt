@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(MY_PROJECT CXX)
+add_executable(proj_test test.cpp lib.cpp)
+add_executable(main1 main1.cpp lib.cpp)
+add_sanitizers(main1)
+target_link_libraries(proj_test PUBLIC Catch2::Catch2 default ${OpenCV_LIBS} -lpthread)
+target_link_libraries(main1 PUBLIC default ${OpenCV_LIBS} -lpthread)
+catch_discover_tests(proj_test)
