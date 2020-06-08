@@ -25,6 +25,7 @@ cv::dnn::Net open_net(char const **argv) {
     std::cerr << argv[1] << " " << argv[2] << std::endl;
     exit(1);
   }
+
 }
 
 int main(int argc, char const **argv) {
@@ -32,26 +33,16 @@ int main(int argc, char const **argv) {
   int hue = 100, sat = 100, val = 100;
   int inverse_colors = 0;
   cv::Mat drawing_layer, frame, text_n_boxes;
-  cv::namedWindow("Video", cv::WINDOW_AUTOSIZE);
-  BreakThroughContainer args{drawing_layer, frame, 0, 0};
-  cv::setMouseCallback("Video", mouseHandler, reinterpret_cast<void *>(&args));
-  cv::createTrackbar("Hue", "Video", &hue, 200);
-  cv::createTrackbar("Saturation", "Video", &sat, 200);
-  cv::createTrackbar("Brightness", "Video", &val, 200);
-  cv::createTrackbar("Inverse colors", "Video", &inverse_colors, 1);
-  cv::createTrackbar("Max FPS", "Video", &fps_max, 60);
   // cv::createButton("Inverse colors", button_callback, &inverse_colors,
   // cv::QT_PUSH_BUTTON);
   std::atomic<bool> stop_flag = 0;
   cv::dnn::Net net = open_net(argv);
   cv::VideoCapture capture{0};
-  while (!capture.isOpened())
-    ;
+  if (!capture.isOpened())
+    return -1;
   capture >> frame;
   drawing_layer.create(frame.size(), frame.type());
-  drawing_layer=cv::Scalar(0);
   text_n_boxes.create(frame.size(), frame.type());
-  text_n_boxes=cv::Scalar(0);
   std::thread detect_th{[&net, &frame, &text_n_boxes, &stop_flag] {
     detectFaceOpenCVDNN(net, frame, text_n_boxes, stop_flag);
   }};
