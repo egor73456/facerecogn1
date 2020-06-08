@@ -11,7 +11,7 @@ std::string caffeConfigFile =
 std::string caffeWeightFile = "/data/Source/opencvfacerecogn-project/data/"
                               "res10_300x300_ssd_iter_140000_fp16.caffemodel";
 
-std::chrono::_V2::system_clock::time_point prev_time, curt_time;
+std::chrono CHRONOV2 system_clock::time_point prev_time, curt_time;
 int fps = 0, fps_max = 40;
 cv::Scalar draw_color{0, 0, 255};
 

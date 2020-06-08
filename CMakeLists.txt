@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 include(cmake/StandardProjectSettings.cmake)
 include(cmake/Catch.cmake)
 # include(FetchContent)
+set(OpenCV_DIR "C:\\opencv\\build")
 
 #git submodule add https://github.com/arsenm/sanitizers-cmake.git external/sanitizers-cmake
 
