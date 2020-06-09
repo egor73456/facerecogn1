@@ -7,8 +7,8 @@ const float confidenceThreshold = 0.4f;
 std::mutex im_access, main_im_access;
 
 std::string caffeConfigFile =
-    "data\\deploy.prototxt";
-std::string caffeWeightFile = "data\\res10_300x300_ssd_iter_140000_fp16.caffemodel";
+    "data/deploy.prototxt";
+std::string caffeWeightFile = "data/res10_300x300_ssd_iter_140000_fp16.caffemodel";
 
 std::chrono CHRONOV2 system_clock::time_point prev_time, curt_time;
 int fps = 0, fps_max = 40;
