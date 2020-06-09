@@ -1,5 +1,5 @@
-#FACERECOGN
-
+# FACERECOGN
+```c++
 src/lib:
   // коэффициент преобразования размеров изображений(параметр сети распознования)
   extern const double inScaleFactor;
@@ -50,7 +50,7 @@ src/lib:
                         int &inverse_colors, cv::Mat &drawing_layer);
   // фкнкция обработчик событий мыши
   extern void mouseHandler(int event, int x, int y,
-                          __attribute__((unused)) int flags, void *param);
+                          [[maybe_unused]] int flags, void *param);
 src/main1:
   // обработка аргументов командной строки
   void check_args(int argc, char const **argv);
@@ -58,3 +58,4 @@ src/main1:
   cv::dnn::Net open_net(char const **argv);
   // точка входа
   int main(int argc, char const **argv);
+  ```c++

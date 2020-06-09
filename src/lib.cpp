@@ -88,7 +88,7 @@ void process_im(cv::Mat &frame, int &hue, int &sat, int &val,
 // void button_callback(int, void *inv) { *reinterpret_cast<bool*>(inv) =
 // !*reinterpret_cast<bool*>(inv); }
 
-void mouseHandler(int event, int x, int y, __attribute__((unused)) int flags,
+void mouseHandler(int event, int x, int y, [[maybe_unused]] int flags,
                   void *param) {
   BreakThroughContainer &args =
       *reinterpret_cast<BreakThroughContainer *>(param);

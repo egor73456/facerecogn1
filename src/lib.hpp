@@ -68,4 +68,4 @@ extern void process_im(cv::Mat &frame, int &hue, int &sat, int &val,
                        int &inverse_colors, cv::Mat &drawing_layer);
 // фкнкция обработчик событий мыши
 extern void mouseHandler(int event, int x, int y,
-                         __attribute__((unused)) int flags, void *param);
+                         [[maybe_unused]] int flags, void *param);
