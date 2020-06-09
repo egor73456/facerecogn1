@@ -1,5 +1,5 @@
-#FACERECOGN
-
+# FACERECOGN
+```c++
 src/lib:
   // коэффициент преобразования размеров изображений(параметр сети распознования)
   extern const double inScaleFactor;
@@ -58,3 +58,4 @@ src/main1:
   cv::dnn::Net open_net(char const **argv);
   // точка входа
   int main(int argc, char const **argv);
+  ```c++
